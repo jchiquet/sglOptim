@@ -29,43 +29,27 @@ globalVariables('task')
 #' then the \code{responses} field contains a list of lists structured in the following way:
 #'
 #'subsamples 1:
-#'\itemize{
-#' \item{sample \code{test[[1]][1]}}{
-#' 	\itemize{
-#'	 \item{model (lambda) index 1}{
-#'   	\itemize{
-#'       \item{}{response elements}
-#'		 }}
-#'	 \item{model (lambda) index 2}{
-#'   	\itemize{
-#'       \item{}{response elements}
-#'		 }}
-#'	 \item{...}{}
-#'	}}
-#' \item{sample \code{test[[1]][2]}}{
-#' 	\itemize{
-#'	 \item{model (lambda) index 1}{
-#'   	\itemize{
-#'       \item{}{response elements}
-#'		 }}
-#'	 \item{model (lambda) index 2}{
-#'   	\itemize{
-#'       \item{}{response elements}
-#'		 }}
-#'	 \item{...}{}
-#'  }}
-#' \item{...}{}
-#' }
+#'* sample \code{test[[1]][1]}
+#'	 * model (lambda) index 1 
+#'       * response elements
+#'	 * model (lambda) index 2
+#'       * response elements
+#'	 * ...
+#' * sample \code{test[[1]][2]}
+#'	 * model (lambda) index 1
+#'       * response elements
+#'	 * model (lambda) index 2
+#'       * response elements
+#'	 * ...
+#' * ...
+#' 
 #'subsamples 2:
 #'  ...
 #'
-#' If \code{responses = "rname"} with \code{rname} the name of the response then a list at \code{responses$rname} will be returned.
-#' The content of the list will depend on the type of the response.
-#' \itemize{
-#	\item{scalar}{ A list of subsamples (of length \code{length(test)}) containing matrices of size \eqn{n_i \times d} with the responses (where \eqn{n_i} is the number of samples in subsample \eqn{i} (that is \code{length(test[[i]])}) and \eqn{d} the length of the lambda sequence).}
-#'\item{vector}{ A list with format subsamples -> models -> matrix of dimension \eqn{n_i \times q} containing the responses for the corresponding model and subsample (where \eqn{q} is the dimension of the response).}
-#'\item{matrix}{ A list with format subsamples -> samples -> models - > the response matrix.}
-#' }
+#' If \code{responses = "rname"} with \code{rname} the name of the response then a list at \code{responses$rname} will be returned. The content of the list will depend on the type of the response.
+#	* scalar A list of subsamples (of length \code{length(test)}) containing matrices of size \eqn{n_i \times d} with the responses (where \eqn{n_i} is the number of samples in subsample \eqn{i} (that is \code{length(test[[i]])}) and \eqn{d} the length of the lambda sequence).
+#'* vector A list with format subsamples -> models -> matrix of dimension \eqn{n_i \times q} containing the responses for the corresponding model and subsample (where \eqn{q} is the dimension of the response).
+#'* matrix A list with format subsamples -> samples -> models - > the response matrix.
 #'
 #' @param module_name reference to objective specific C++ routines.
 #' @param PACKAGE name of the calling package.
