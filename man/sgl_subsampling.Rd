@@ -4,12 +4,26 @@
 \alias{sgl_subsampling}
 \title{Generic sparse group lasso subsampling procedure}
 \usage{
-sgl_subsampling(module_name, PACKAGE, data, parameterGrouping = NULL,
-  groupWeights = NULL, parameterWeights = NULL, alpha, lambda,
-  d = 100, compute_lambda = length(lambda) == 1, training = NULL,
-  test = NULL, responses = NULL, auto_response_names = TRUE,
-  collapse = FALSE, max.threads = NULL, use_parallel = FALSE,
-  algorithm.config = sgl.standard.config)
+sgl_subsampling(
+  module_name,
+  PACKAGE,
+  data,
+  parameterGrouping = NULL,
+  groupWeights = NULL,
+  parameterWeights = NULL,
+  alpha,
+  lambda,
+  d = 100,
+  compute_lambda = length(lambda) == 1,
+  training = NULL,
+  test = NULL,
+  responses = NULL,
+  auto_response_names = TRUE,
+  collapse = FALSE,
+  max.threads = NULL,
+  use_parallel = FALSE,
+  algorithm.config = sgl.standard.config
+)
 }
 \arguments{
 \item{module_name}{reference to objective specific C++ routines.}
@@ -71,33 +85,33 @@ then the \code{responses} field contains a list of lists structured in the follo
 subsamples 1:
 \itemize{
 \item{sample \code{test[[1]][1]}}{
-	\itemize{
- \item{model (lambda) index 1}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{model (lambda) index 2}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{...}{}
+\itemize{
+\item{model (lambda) index 1}{
+\itemize{
+\item{}{response elements}
+}}
+\item{model (lambda) index 2}{
+\itemize{
+\item{}{response elements}
+}}
+\item{...}{}
 }}
 \item{sample \code{test[[1]][2]}}{
-	\itemize{
- \item{model (lambda) index 1}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{model (lambda) index 2}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{...}{}
- }}
+\itemize{
+\item{model (lambda) index 1}{
+\itemize{
+\item{}{response elements}
+}}
+\item{model (lambda) index 2}{
+\itemize{
+\item{}{response elements}
+}}
+\item{...}{}
+}}
 \item{...}{}
 }
 subsamples 2:
- ...
+...
 
 If \code{responses = "rname"} with \code{rname} the name of the response then a list at \code{responses$rname} will be returned.
 The content of the list will depend on the type of the response.

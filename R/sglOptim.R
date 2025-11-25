@@ -1,3 +1,6 @@
+#' @keywords internal
+"_PACKAGE"
+
 #' sglOptim: Generic Sparse Group Lasso Solver
 #'
 #' Fast generic solver for sparse group lasso optimization problems.
@@ -25,9 +28,8 @@
 #' \item Navigating the models and computing error rates.
 #'}
 #'
-#' @docType package
 #' @author Martin Vincent 
-#' @name sglOptim
+#' @name sglOptim-package
 #' @importFrom tools assertError
 #' @importFrom tools assertWarning
 #' @importFrom stats runif

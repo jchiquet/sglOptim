@@ -4,8 +4,15 @@
 \alias{sgl_predict}
 \title{Predict}
 \usage{
-sgl_predict(module_name, PACKAGE, object, data, responses = NULL,
-  auto_response_names = TRUE, ...)
+sgl_predict(
+  module_name,
+  PACKAGE,
+  object,
+  data,
+  responses = NULL,
+  auto_response_names = TRUE,
+  ...
+)
 }
 \arguments{
 \item{module_name}{reference to objective specific C++ routines.}
@@ -23,51 +30,46 @@ sgl_predict(module_name, PACKAGE, object, data, responses = NULL,
 \item{...}{not used.}
 }
 \value{
-\item{responses}{list of lists structured as described in details.
-Content of the response elements will depend on the C++ response class}
-\item{lambda}{the lambda sequence used.}
+an object with class \code{sgl}, with
+\itemize{
+\item \emph{responses} a list of lists structured as described in details. Content of the response elements will depend on the C++ response class
+\item \emph{lambda:} the lambda sequence used
+}
 }
 \description{
 Predict and return responses as defined in the module.
 }
 \details{
-If no formating is done (i.e. if \code{responses = NULL})
+If no formatting is done (i.e. if \code{responses = NULL})
 then the \code{responses} field contains a list of lists structured in the following way:
-
 \itemize{
-\item{sample 1}{
-	\itemize{
- \item{model (lambda) index 1}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{model (lambda) index 2}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{...}{}
-}}
-\item{sample 2}{
-	\itemize{
- \item{model (lambda) index 1}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{model (lambda) index 2}{
-  	\itemize{
-      \item{}{response elements}
-	 }}
- \item{...}{}
- }}
-\item{...}{}
+\item sample 1
+\item model (lambda) index 1
+\itemize{
+\item response elements
+}
+\item model (lambda) index 2
+\itemize{
+\item response elements
+}
+\item ...
+\item sample 2
+\item model (lambda) index 1
+* response elements
+\item model (lambda) index 2
+\itemize{
+\item response elements
+}
+\item ...
+\item ...
 }
 
 If \code{responses = "rname"} with \code{rname} the name of the response then a list at \code{responses$rname} will be returned.
 The content of the list will depend on the type of the response.
 \itemize{
-\item {\emph{scalar:} a matrix of size \eqn{n \times d} with the responses (where \eqn{n} is the number of samples and \eqn{d} the length of the lambda sequence).}
-\item {\emph{vector:} a list of length \eqn{d} with each element a matrix of dimension \eqn{n \times q} containing the responses for the corresponding model (where \eqn{q} is the dimension of the response).}
-\item {\emph{matrix:} a list with format samples -> models - > the response matrix.}
+\item \emph{scalar:} a matrix of size \eqn{n \times d} with the responses (where \eqn{n} is the number of samples and \eqn{d} the length of the lambda sequence).
+\item \emph{vector:} a list of length \eqn{d} with each element a matrix of dimension \eqn{n \times q} containing the responses for the corresponding model (where \eqn{q} is the dimension of the response).
+\item \emph{matrix:} a list with format samples -> models - > the response matrix.
 }
 }
 \author{
