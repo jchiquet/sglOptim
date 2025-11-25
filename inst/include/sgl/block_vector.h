@@ -42,15 +42,18 @@ class BlockVector {
     arma::u32 const n_nonzero;
     arma::u32 const n_nonzero_blocks;
 
-    BlockVector<MATRIX, VECTOR>();
-
-    BlockVector<MATRIX, VECTOR>(
+    // BlockVector<MATRIX, VECTOR>();
+    BlockVector();
+    
+    // BlockVector<MATRIX, VECTOR>(
+    BlockVector(
       arma::u32 unit_size,
       arma::uvec block_sizes)
     ;
 
-    BlockVector<MATRIX, VECTOR>(BlockVector<MATRIX, VECTOR> const& source);
-
+    // BlockVector<MATRIX, VECTOR>(BlockVector<MATRIX, VECTOR> const& source);
+    BlockVector(BlockVector const& source);
+    
     // BlockVector<MATRIX, VECTOR>(
     //   MATRIX const& source,
     //   const sgl::DimConfig & dim);
